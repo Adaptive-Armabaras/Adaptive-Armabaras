@@ -65,6 +65,12 @@ body.my-login-page {
 	text-align: center;
 }
 
+.my-login-page a:focus, .my-login-page a:hover, .my-login-page a:visited, .my-login-page a:link, .my-login-page a:active  {
+	color: #007bff !important;
+	text-decoration: none;
+	background-color: transparent;
+}
+
 @media screen and (max-width: 425px) {
 	.my-login-page .card-wrapper {
 		width: 90%;

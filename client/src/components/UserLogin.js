@@ -27,6 +27,8 @@ class UserLogin extends Component {
       .then(response => {
         this.props.setUserIdToState(response.data.userId);
         localStorage.setItem('userId', response.data.userId);
+
+        window.location = '/';
       });
     this.setState({ email: '', password: '', isActive: false });
   }
@@ -46,9 +48,7 @@ class UserLogin extends Component {
           <div className="container h-100">
             <div className="row justify-content-md-center h-100">
               <div className="card-wrapper">
-                <div className="brand">
-                  <img src="img/logo.jpg" />
-                </div>
+                <div className="brand" />
                 <div className="card fat">
                   <div className="card-body">
                     <h4 className="card-title">HumpDay Login</h4>
@@ -69,12 +69,7 @@ class UserLogin extends Component {
                       </div>
 
                       <div className="form-group">
-                        <label htmlFor="password">
-                          Password
-                          <a href="forgot.html" className="float-right">
-                            Forgot Password?
-                          </a>
-                        </label>
+                        <label htmlFor="password">Password</label>
                         <input
                           id="password"
                           type="password"
@@ -97,8 +92,10 @@ class UserLogin extends Component {
                         </button>
                       </div>
                       <div className="margin-top20 text-center">
-                        Don't have an account?
-                        <a href="register.html">Create One</a>
+                        <p>
+                          Don't have an account?{' '}
+                          <a href="/signup">Create One</a>
+                        </p>
                       </div>
                     </form>
                   </div>

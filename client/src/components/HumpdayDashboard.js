@@ -52,13 +52,36 @@ class HumpdayDashboard extends Component {
     this.setState({ currentWeekData: data });
   };
 
+  // detect login
+
+  loggedIn() {
+    if (localStorage.userId) {
+      return true;
+    }
+    return false;
+  }
+
+  requireAuth(nextState, replace) {
+    if (!this.loggedIn()) {
+      return true;
+    }
+    return false;
+  }
+
+  //
+
   render(props) {
     return (
       <BrowserRouter>
         <Switch>
           <MuiThemeProvider>
-            <Route exact path="/" component={Dashboard} />
-
+            <Route
+              exact
+              path="/"
+              render={() =>
+                this.requireAuth() ? <Redirect to="/login" /> : <Dashboard />
+              }
+            />
             <Route
               exact
               path="/login"
@@ -70,7 +93,19 @@ class HumpdayDashboard extends Component {
                 />
               )}
             />
-            <Route exact path="/signup" component={UserSignUp} />
+            {/* <Route exact path="/signup" component={UserSignUp} /> */}
+
+            <Route
+              exact
+              path="/signup"
+              render={props => (
+                <UserSignUp
+                  logged={!!this.state.userId}
+                  setUserIdToState={this.setUserIdToState}
+                  clearUserIdFromState={this.clearUserIdFromState}
+                />
+              )}
+            />
           </MuiThemeProvider>
         </Switch>
       </BrowserRouter>

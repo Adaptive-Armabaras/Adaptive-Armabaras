@@ -34,9 +34,9 @@ class App extends React.Component {
     this.setState({userId: localStorage.getItem('userId')})
   }
 
-  setUserIdToState = (userId) => {
-    this.setState({userId: userId});
-  }
+  // setUserIdToState = (userId) => {
+  //   this.setState({userId: userId});
+  // }
 
   clearUserIdFromState = () => {
     this.setState({userId: null});
@@ -108,47 +108,3 @@ class App extends React.Component {
 
 export default App;
 
-
-// <AppHeader
-//   logged={!(!this.state.userId)}
-//   setUserIdToState={this.setUserIdToState}
-//   clearUserIdFromState={this.clearUserIdFromState} />
-
-  // <div className="row">
-  //   <div className='col-md-4'>
-  //     <Duck className='duck-view' />
-  //     <div className='chart'><Chart data={this.state.currentWeekData} /></div>
-  //   </div>
-  //   <div className='col-md-4'>
-
-
-      // <Weekly
-      //   week={this.state.weekState}
-      //   className='weekly-view'
-
-      //   userId={this.state.userId}
-      //   logged={!(!this.state.userId)}
-      //   showAddTaskForm={this.toggleAddTaskForm}
-      //   setWeekDataState={this.updateCurrentWeekData}
-      // />
-
-
-
-//     </div>
-//     <div className='col-md-4'>
-//       <div className="row">
-//         <div className="col-md-12">
-//           <Notes userId={this.state.userId} />
-//         </div>
-//         <div className="col-md-12">
-//           <h2>Bottom Col</h2>
-//         </div>
-//       </div>
-//     </div>
-    // {
-    //   <Drawer width={400} openSecondary={false} open={this.state.addTaskActive} >
-    //     <AppBar iconStyleLeft={{ display: 'none' }} title="Add Task" />
-    //     <AddTask userId={this.state.userId} closeAddTaskForm={this.toggleAddTaskForm} />
-    //   </Drawer>
-    // }
-//   </div>
