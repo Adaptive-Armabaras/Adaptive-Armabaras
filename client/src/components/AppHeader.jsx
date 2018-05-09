@@ -19,6 +19,8 @@ import LoginView from './Login.jsx';
 import Duck from './Duck.jsx';
 import Ddiv from '../hoc/ddiv/ddiv.js'
 
+// New
+import UserLogin from './UserLogin';
 
 
 class Login extends Component {
@@ -96,11 +98,12 @@ class AppHeader extends React.Component {
             {this.props.logged ? 
               <Logged clearUserIdFromState={this.props.clearUserIdFromState} /> 
               : 
-              <Link to="/login"> <Login /> </Link> 
+              <Link to="/login"> Login </Link> 
             } 
           </div>
           <Route exact path="/signup" render={()=><Register setUserIdToState={this.props.setUserIdToState} isActive={true}/>}/>
-          <Route exact path="/login" render={()=><LoginView setUserIdToState={this.props.setUserIdToState} isActive={true}/>}/>
+          {/* <Route exact path="/login" render={()=><LoginView setUserIdToState={this.props.setUserIdToState} isActive={true}/>}/> */}
+          <Route exact path="/login" component={UserLogin}/>
 
           <button type="button" className="btn btn-info tsk-btn">
             Add Task 
