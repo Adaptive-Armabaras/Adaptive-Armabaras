@@ -64,7 +64,7 @@ class Chart extends React.Component {
 
       })
     }
-    return {completed: completed, todo: todo, weektasks: weektasks, dayArr: dayArr}
+    return {completed: completed, todo: todo, weektasks: weektasks}
   }
 
   render() {
@@ -89,7 +89,7 @@ class Chart extends React.Component {
                 'rgba(163, 29, 0, 0.78)'
               ]
             }],
-            labels: dayArr
+            labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
           }} />          
         </div>
 
