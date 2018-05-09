@@ -64,13 +64,20 @@ class Chart extends React.Component {
 
       })
     }
-    return {completed: completed, todo: todo, weektasks: weektasks}
+    return {completed: completed, todo: todo, weektasks: weektasks, dayArr: dayArr}
   }
 
   render() {
-    let newArr = [];
-    for (var i in this.state.weektasks) {
-      newArr.push(this.state.weektasks[i])
+    let weekObj = {};
+    let chartArr = []
+    if (this.state.dayArr.length === 7) {
+      for (var i = 0; i < this.state.dayArr.length; i++) {
+        weekObj[this.state.dayArr[i]] = this.state.weektasks[this.state.dayArr[i]]
+      }
+
+      for (var j in weekObj) {
+        chartArr.push(weekObj[j])
+      }
     }
     return  (
       <div>
@@ -78,7 +85,7 @@ class Chart extends React.Component {
         <div className="row bar-chart ml-10">
           <Bar data={{
             datasets: [{
-              data: newArr,
+              data: chartArr,
               backgroundColor: [
                 'rgba(0,255,0, 0.5)',
                 'rgba(255, 0, 0, 0.5)',
@@ -89,7 +96,7 @@ class Chart extends React.Component {
                 'rgba(163, 29, 0, 0.78)'
               ]
             }],
-            labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+            labels: this.state.dayArr
           }} />          
         </div>
 
