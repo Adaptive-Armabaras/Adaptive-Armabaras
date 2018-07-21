@@ -123,8 +123,10 @@ App
 
 ## Contributors
 - [vasyl-n](https://github.com/vasyl-n)
-- mjraybk07
+- [mjraybk07](https://github.com/mjraybk07)
 - [echi81](https://github.com/echi81)
+- [dlunsfo1](https://github.com/dlunsfo1)
+- [th0s](https://github.com/th0s)
 
 
 **Contribute By**
